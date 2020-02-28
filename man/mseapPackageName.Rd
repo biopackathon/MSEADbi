@@ -15,7 +15,7 @@
 }
 
 \value{
-  \code{mseapPackageName} returns a "character".
+    \code{mseapPackageName} returns a "character".
 }
 
 \author{Kozo Nishida}

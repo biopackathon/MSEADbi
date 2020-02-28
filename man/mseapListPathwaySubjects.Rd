@@ -6,7 +6,8 @@
 \alias{mseapListPathwaySubjects}
 
 \title{A function to return the scientific name of package}
-\description{This function returns the scientific name of species used in the package.}
+\description{This function returns the scientific name of species used in the
+package.}
 
 \usage{mseapListPathwaySubjects(x)}
 
@@ -15,7 +16,7 @@
 }
 
 \value{
-  \code{mseapListPathwaySubjects} returns a data.frame.
+    \code{mseapListPathwaySubjects} returns a data.frame.
 }
 
 \author{Kozo Nishida}

@@ -3,15 +3,15 @@
 \title{Making MSEApDb packages from corresponding table as single data frame.}
 \usage{
 makeMSEApPackage(
-  pkgname,
-  data,
-  metadata,
-  organism,
-  version,
-  maintainer,
-  author,
-  destDir,
-  license = "Artistic-2.0"
+    pkgname,
+    data,
+    metadata,
+    organism,
+    version,
+    maintainer,
+    author,
+    destDir,
+    license = "Artistic-2.0"
 )
 }
 \arguments{
@@ -61,7 +61,7 @@ different packages used are from the same build etc.
 
 ## this is test data which means the relationship between
 ## PathBank pathway IDs of Arabidopsis thaliana
-## and its compound DB IDs (e.g., HMDB, KEGG, CAS, etc...).
+## and its compound DB IDs (e.g., HMDB, CAS, etc...).
 data(MSEAp.Ath.pb.db_DATA)
 head(MSEAp.Ath.pb.db_DATA)
 
@@ -76,15 +76,16 @@ dir.create(tmp)
 
 ## makes an Organism package for Arabidopsis
 
-MSEApDbi::makeMSEApPackage(pkgname = "MSEAp.Ath.pb.db", 
-                            data = MSEAp.Ath.pb.db_DATA, 
-                            metadata = MSEAp.Ath.pb.db_METADATA, 
-                            organism = "Arabidopsis thaliana", 
-                            version = "0.99.0", 
-                            maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
-                            author = "Kozo Nishida", 
-                            destDir = tmp, 
-                            license = "Artistic-2.0")
+MSEApDbi::makeMSEApPackage(
+                pkgname = "MSEAp.Ath.pb.db", 
+                data = MSEAp.Ath.pb.db_DATA, 
+                metadata = MSEAp.Ath.pb.db_METADATA, 
+                organism = "Arabidopsis thaliana", 
+                version = "0.99.0", 
+                maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
+                author = "Kozo Nishida", 
+                destDir = tmp, 
+                license = "Artistic-2.0")
 
 }
 \seealso{

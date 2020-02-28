@@ -17,4 +17,5 @@ export(MSEApDb)
 exportClasses(MSEApDb)
 
 exportMethods(columns, keytypes, keys, select, dbconn, dbfile, dbschema,
-    dbInfo, species, mseapPackageName, mseapNomenclature, mseapListPathwaySubjects, mseapVersion)
+    dbInfo, species, mseapPackageName, mseapNomenclature, 
+    mseapListPathwaySubjects, mseapVersion)

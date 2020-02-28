@@ -5,8 +5,10 @@
 Data to construct user's original MSEApDb package
 }
 \description{
-Correspondance between PathBank pathway IDs of Arabidopsis thaliana and other compound databases' IDs is provided as demo data. This is to demonstrate how to construct user's original \code{MSEApDb} package. The data is based on the PathBank database.
-
+Correspondance between PathBank pathway IDs of Arabidopsis thaliana and other
+compound databases' IDs is provided as demo data. This is to demonstrate 
+how to construct user's original \code{MSEApDb} package. The data is based on 
+the PathBank database.
 }
 
 \usage{data(MSEAp.Ath.pb.db_DATA)}

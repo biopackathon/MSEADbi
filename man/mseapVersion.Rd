@@ -15,7 +15,7 @@
 }
 
 \value{
-  \code{mseapVersion} returns a data.frame.
+    \code{mseapVersion} returns a data.frame.
 }
 
 \author{Kozo Nishida}

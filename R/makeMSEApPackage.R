@@ -38,7 +38,7 @@
 #' 
 #' ## this is test data which means the relationship between
 #' ## PathBank pathway IDs of Arabidopsis thaliana
-#' ## and its compound DB IDs (e.g., HMDB, KEGG, CAS, etc...).
+#' ## and its compound DB IDs (e.g., HMDB, CAS, etc...).
 #' data(MSEAp.Ath.pb.db_DATA)
 #' head(MSEAp.Ath.pb.db_DATA)
 #' 
@@ -54,14 +54,14 @@
 #' ## makes an Organism package for Arabidopsis
 #' 
 #' MSEApDbi::makeMSEApPackage(pkgname = "MSEAp.Ath.pb.db", 
-#'                             data = MSEAp.Ath.pb.db_DATA, 
-#'                             metadata = MSEAp.Ath.pb.db_METADATA, 
-#'                             organism = "Arabidopsis thaliana", 
-#'                             version = "0.99.0", 
-#'                             maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
-#'                             author = "Kozo Nishida", 
-#'                             destDir = tmp, 
-#'                             license = "Artistic-2.0")
+#'                      data = MSEAp.Ath.pb.db_DATA, 
+#'                      metadata = MSEAp.Ath.pb.db_METADATA, 
+#'                      organism = "Arabidopsis thaliana", 
+#'                      version = "0.99.0", 
+#'                      maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
+#'                      author = "Kozo Nishida", 
+#'                      destDir = tmp, 
+#'                      license = "Artistic-2.0")
 #' 
 #' @export makeMSEApPackage
 #' 
@@ -129,7 +129,8 @@ makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
     # dir.create(paste0(destDir, "/", pkgname, "/vignettes/"),
     #     showWarnings = FALSE, recursive = TRUE)
     # template_rnw <- .pathRmd()
-    # new_rnw <- unlist(read.delim(template_rnw, header=FALSE, stringsAsFactor=FALSE))
+    # new_rnw <- unlist(read.delim(template_rnw, header=FALSE, 
+    # stringsAsFactor=FALSE))
     # new_rnw <- gsub("MSEApDbi", pkgname, new_rnw)
     # sink(paste0(destDir, "/", pkgname, "/vignettes/", pkgname, ".Rnw"))
     # for(i in seq_along(new_rnw)){

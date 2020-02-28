@@ -6,7 +6,8 @@
 \alias{mseapNomenclature}
 
 \title{A function to return the scientific name of package}
-\description{This function returns the scientific name of species used in the package.}
+\description{This function returns the scientific name of species used in the
+package.}
 
 \usage{mseapNomenclature(x)}
 
@@ -15,7 +16,7 @@
 }
 
 \value{
-  \code{mseapNomenclature} returns a "character".
+    \code{mseapNomenclature} returns a "character".
 }
 
 \author{Kozo Nishida}
