@@ -11,6 +11,7 @@ Suggests:
     BiocGenerics,
     BiocStyle,
     knitr,
+    MSEAp.Ath.pb.db,
     testthat (>= 2.1.0)
 VignetteBuilder: knitr
 biocViews: Infrastructure

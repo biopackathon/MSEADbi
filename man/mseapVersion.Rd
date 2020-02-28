@@ -13,8 +13,13 @@
 \arguments{
 \item{x}{\code{MSEApDb} object such as \code{MSEAp.Ath.pb.db}}
 }
+
+\value{
+  \code{mseapVersion} returns a data.frame.
+}
+
 \author{Kozo Nishida}
 \examples{
-# library("MSEAp.Ath.pb.db")
-# meshVersion(MSEAp.Ath.pb.db)
+library("MSEAp.Ath.pb.db")
+mseapVersion(MSEAp.Ath.pb.db)
 }

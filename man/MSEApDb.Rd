@@ -99,25 +99,25 @@
 
 \examples{
 
-# # load a package that creates an MSEApDb object
-# library(MSEAp.Ath.pb.db)
-# MSEAp.Ath.pb.db
+# load a package that creates an MSEApDb object
+library(MSEAp.Ath.pb.db)
+MSEAp.Ath.pb.db
 
-# ## then the methods can be used on this object.
-# cls <- columns(MSEAp.Ath.pb.db)
-# cls
-# kts <- keytypes(MSEAp.Ath.pb.db)
-# kt <- kts[2]
-# kts
-# ks <- head(keys(MSEAp.Ath.pb.db, keytype=kts[2]))
-# ks
-# res <- select(MSEAp.Ath.pb.db, keys=ks, columns=cls, keytype=kt)
-# head(res)
+## then the methods can be used on this object.
+cls <- columns(MSEAp.Ath.pb.db)
+cls
+kts <- keytypes(MSEAp.Ath.pb.db)
+kt <- kts[2]
+kts
+ks <- head(keys(MSEAp.Ath.pb.db, keytype=kts[2]))
+ks
+res <- select(MSEAp.Ath.pb.db, keys=ks, columns=cls, keytype=kt)
+head(res)
 
-# dbconn(MSEAp.Ath.pb.db)
-# dbfile(MSEAp.Ath.pb.db)
-# dbschema(MSEAp.Ath.pb.db)
+dbconn(MSEAp.Ath.pb.db)
+dbfile(MSEAp.Ath.pb.db)
+dbschema(MSEAp.Ath.pb.db)
 
-# dbInfo(MSEAp.Ath.pb.db)
-# species(MSEAp.Ath.pb.db)
+dbInfo(MSEAp.Ath.pb.db)
+species(MSEAp.Ath.pb.db)
 }

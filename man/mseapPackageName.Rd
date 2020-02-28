@@ -13,8 +13,13 @@
 \arguments{
 \item{x}{\code{MSEApDb} object such as \code{MSEAp.Ath.pb.db}}
 }
+
+\value{
+  \code{mseapPackageName} returns a "character".
+}
+
 \author{Kozo Nishida}
 \examples{
-# library("MSEAp.Ath.pb.db")
-# mseapPackageName(MSEAp.Ath.pb.db)
+library("MSEAp.Ath.pb.db")
+mseapPackageName(MSEAp.Ath.pb.db)
 }
