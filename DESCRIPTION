@@ -1,0 +1,18 @@
+Package: MSEApDbi
+Title: DBI to construct MSEAp-related package
+Description: Interface to construct MSEAp package (MSEAp.XXX.eg.db).
+Version: 0.99.1
+Author: Kozo Nishida
+Maintainer: Kozo Nishida <k.t.the-answer@hotmail.co.jp>
+Depends: R (>= 3.6.0)
+Imports: methods, stats, utils, AnnotationDbi, RSQLite, DBI, Biobase
+Suggests: 
+    RUnit,
+    BiocGenerics,
+    BiocStyle,
+    knitr,
+    testthat (>= 2.1.0)
+VignetteBuilder: knitr
+biocViews: Infrastructure
+License: Artistic-2.0
+RoxygenNote: 7.0.2

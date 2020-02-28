@@ -1,0 +1,11 @@
+Package: @PKGNAME@
+Title: @PKGTITLE@
+Description: @PKGDESCRIPTION@
+Version: @PKGVERSION@
+Author: @AUTHOR@
+Maintainer: @MAINTAINER@
+Depends: R (>= 3.5.0), MSEApDbi
+Imports: RSQLite
+Suggests: RUnit, BiocGenerics
+License: @LIC@
+biocViews: AnnotationData, FunctionalAnnotation
