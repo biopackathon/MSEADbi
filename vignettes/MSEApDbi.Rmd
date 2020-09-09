@@ -1,23 +1,23 @@
 ---
 title: "Introduction to MSEApDbi and MSEAp.XXX.pb.db packages"
 author:
-- name: Atsushi Fukushima
-  affiliation: RIKEN Center for Sustainable Resource Science
-  email: afukushima@gmail.com
 - name: Kozo Nishida
-  affiliation: RIKEN Center for Biosystems Dynamics Research
-  email: knishida@riken.jp
+    affiliation: RIKEN Center for Biosystems Dynamics Research
+    email: knishida@riken.jp
+- name: Atsushi Fukushima
+    affiliation: RIKEN Center for Sustainable Resource Science
+    email: afukushima@gmail.com
 - name: Koki Tsuyuzaki
-  affiliation: RIKEN Center for Biosystems Dynamics Research
-  email: k.t.the-answer@hotmail.co.jp
+    affiliation: RIKEN Center for Biosystems Dynamics Research
+    email: k.t.the-answer@hotmail.co.jp
 date: "`r Sys.Date()`"  
 output:
-  BiocStyle::html_document
+    BiocStyle::html_document
 package: MSEApDbi
 vignette: |
-  %\VignetteIndexEntry{MSEApDbi}
-  %\VignetteEncoding{UTF-8}
-  %\VignetteEngine{knitr::rmarkdown}
+    %\VignetteIndexEntry{MSEApDbi}
+    %\VignetteEncoding{UTF-8}
+    %\VignetteEngine{knitr::rmarkdown}
 ---
 
 # Introduction
