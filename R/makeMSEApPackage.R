@@ -67,16 +67,9 @@
 #' 
 makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
     maintainer, author, destDir, license="Artistic-2.0"){
-
-    # Validate of data
     .validateColNames1(data)
     .validateColNames2(metadata)
-
-    ## there should only be one template
     template_path <- system.file("MSEApPkg-template", package="MSEApDbi")
-
-    ## We need to define some symbols in order to have the
-    ## template filled out correctly.
     symvals <- list(
         PKGTITLE=paste("An annotation package for the MSEApDb object"),
         PKGDESCRIPTION=paste("Contains the MSEApDb object",
@@ -89,56 +82,22 @@ makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
         ORGANISMBIOCVIEW=gsub(" ","_",organism),
         PKGNAME=pkgname
     )
-
     .isSingleString <- function (x){
         is.character(x) && length(x) == 1L && !is.na(x)
     }
-
-    ## Should never have duplicates
     if (any(duplicated(names(symvals))))
         stop("'symvals' contains duplicated symbols")
-    ## All symvals should by single strings (non-NA)
     is_OK <- vapply(symvals, .isSingleString, TRUE)
     if (!all(is_OK)) {
         bad_syms <- paste(names(is_OK)[!is_OK], collapse="', '")
         stop("values for symbols '", bad_syms, "' are not single strings")
     }
-
-    ## create Package structure
     createPackage(pkgname = pkgname,
         destinationDir = destDir,
         originDir = template_path,
         symbolValues = symvals,
         unlink = TRUE
     )
-
-    # # copy vignette
-    # .pathRmd <- function(){
-    #     LIBPATHS = .libPaths()
-    #     MSEAPATH = sapply(LIBPATHS, function(x){
-    #         file.exists(paste0(x, "/MSEApDbi/doc/MSEApDbi.Rnw"))
-    #     })
-    #     MSEAPATH = names(MSEAPATH[which(MSEAPATH)])
-    #     if(length(MSEAPATH) != 0){
-    #         paste0(MSEAPATH[1], "/MSEApDbi/doc/MSEApDbi.Rnw")
-    #     }else{
-    #         stop("The library path is not found!\n")
-    #     }
-    # }
-    # 
-    # dir.create(paste0(destDir, "/", pkgname, "/vignettes/"),
-    #     showWarnings = FALSE, recursive = TRUE)
-    # template_rnw <- .pathRmd()
-    # new_rnw <- unlist(read.delim(template_rnw, header=FALSE, 
-    # stringsAsFactor=FALSE))
-    # new_rnw <- gsub("MSEApDbi", pkgname, new_rnw)
-    # sink(paste0(destDir, "/", pkgname, "/vignettes/", pkgname, ".Rnw"))
-    # for(i in seq_along(new_rnw)){
-    #     cat(paste0(new_rnw[i], "\n"))
-    # }
-    # sink()
-
-    ## move template to dest
     template_sqlite <- paste0(system.file("DBschemas", package = "MSEApDbi"),
         "/MSEAp.XXX.pb.db.sqlite")
     dir.create(paste0(destDir, "/", pkgname, "/inst/extdata"),
@@ -146,22 +105,12 @@ makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
     dest_sqlitepath <- paste0(destDir, "/", pkgname, "/inst/extdata/")
     file.copy(from = template_sqlite, to = dest_sqlitepath,
         overwrite=TRUE)
-
-    ## rename
     old_dest_sqlite <- paste0(dest_sqlitepath, "MSEAp.XXX.pb.db.sqlite")
     new_dest_sqlite <- paste0(dest_sqlitepath, pkgname, ".sqlite")
     file.rename(from = old_dest_sqlite, to = new_dest_sqlite)
-
-    # ## connection
     conn <- dbConnect(SQLite(), dbname = new_dest_sqlite)
-
-    ## insert metadata into moved sqlite database
     dbWriteTable(conn, name="METADATA", value=metadata, overwrite=TRUE)
-
-    ## insert data and metadata into moved sqlite database
     dbWriteTable(conn, name="DATA", value=data, overwrite=TRUE)
-
-    # disconnection
     dbDisconnect(conn)
 }
 
