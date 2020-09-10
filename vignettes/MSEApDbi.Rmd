@@ -77,7 +77,8 @@ columns(MSEAp.Ath.pb.db)
 keytypes(MSEAp.Ath.pb.db)
 
 ids <- c('SMP0012018', 'SMP0012019')
-select(MSEAp.Ath.pb.db, ids, "MetaboliteID", "PathBankID")
+select(MSEAp.Ath.pb.db, ids, c("MetaboliteID", "CAS", "HMDBID", "ChEBIID", 
+    "KEGGID"), "PathBankID")
 ```
 
 ## Other functions
