@@ -39,29 +39,24 @@
 #' ## this is test data which means the relationship between
 #' ## PathBank pathway IDs of Arabidopsis thaliana
 #' ## and its compound DB IDs (e.g., HMDB, CAS, etc...).
-#' data(MSEAp.Ath.pb.db_DATA)
-#' head(MSEAp.Ath.pb.db_DATA)
+#' tmp <- tempdir()
+#' ath <- system.file("extdata","MSEAp.Ath.pb.db_DATA.csv",package="MSEApDbi")
+#' meta <- system.file("extdata","MSEAp.Ath.pb.db_METADATA.csv",
+#'     package="MSEApDbi")
+#' athDf <- read.csv(ath)
+#' metaDf <- read.csv(meta)
+#' # We need to avoid DOT from the column names (to query with the names)
+#' names(athDf) <- gsub("\\.", "", names(athDf))
+#' names(metaDf) <- gsub("\\.", "", names(metaDf))
 #' 
-#' # We are also needed to prepare meta data as follows.
-#' data(MSEAp.Ath.pb.db_METADATA)
-#' MSEAp.Ath.pb.db_DATA
+#' makeMSEApPackage(pkgname = "MSEAp.Ath.pb.db", data=athDf, metadata=metaDf,
+#'     organism = "Arabidopsis thaliana", version = "0.99.0",
+#'     maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
+#'     author = "Kozo Nishida",
+#'     destDir = tmp, license = "Artistic-2.0")
 #' 
-#' ## sets up a temporary directory for this example
-#' ## (users won't need to do this step)
-#' tmp <- tempfile()
-#' dir.create(tmp) 
-#' 
-#' ## makes an Organism package for Arabidopsis
-#' 
-#' MSEApDbi::makeMSEApPackage(pkgname = "MSEAp.Ath.pb.db", 
-#'                      data = MSEAp.Ath.pb.db_DATA, 
-#'                      metadata = MSEAp.Ath.pb.db_METADATA, 
-#'                      organism = "Arabidopsis thaliana", 
-#'                      version = "0.99.0", 
-#'                      maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
-#'                      author = "Kozo Nishida", 
-#'                      destDir = tmp, 
-#'                      license = "Artistic-2.0")
+#' mseapPackageDir = paste(tmp, "MSEAp.Ath.pb.db", sep="/")
+#' install.packages(mseapPackageDir, repos=NULL, type="source")
 #' 
 #' @export makeMSEApPackage
 #' 

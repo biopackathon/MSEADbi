@@ -24,4 +24,4 @@ Suggests:
 VignetteBuilder: knitr
 biocViews: Infrastructure
 License: Artistic-2.0
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.1
