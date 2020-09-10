@@ -1,0 +1,10 @@
+NAME,VALUE
+SOURCENAME1,PathBank
+SOURCEURL1,http://pathbank.org/downloads/pathbank_primary_metabolites.csv.zip
+DBSCHEMA,MSEAp.Ath.pb.db
+DBSCHEMAVERSION,1.0.0
+ORGANISM,Arabidopsis thaliana
+SPECIES,Thale cress
+package,AnnotationDbi
+Db type,MSEApDb
+MSEApVERSION,2019
