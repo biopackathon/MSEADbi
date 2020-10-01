@@ -1,17 +1,17 @@
 ##
-## This is for constracting original MSEAp.XXX.pb.db packages by end-users
+## This is for constracting original MSEA.XXX.pb.db packages by end-users
 ##
-#' Making MSEApDb packages from corresponding table as single data frame.
+#' Making MSEADb packages from corresponding table as single data frame.
 #' 
-#' \code{makeMSEApPackage} is a method that generates a package that will
-#' load an appropriate \code{MSEApDb} object that will in turn point to existing
+#' \code{makeMSEAPackage} is a method that generates a package that will
+#' load an appropriate \code{MSEADb} object that will in turn point to existing
 #' annotation packages.
 #' 
 #' The purpose of this method is to create a special package that will depend
-#' on existing annotation packages and which will load a special \code{MSEApDb}
+#' on existing annotation packages and which will load a special \code{MSEADb}
 #' object that will allow proper dispatch of special select methods. These
 #' methods will allow the user to easily query across multiple annotation
-#' resources via information contained by the \code{MSEApDb} object. Because the
+#' resources via information contained by the \code{MSEADb} object. Because the
 #' end result will be a package that treats all the data mapped together as a
 #' single source, the user is encouraged to take extra care to ensure that the
 #' different packages used are from the same build etc.
@@ -28,46 +28,46 @@
 #' @param author Who is the creator of this package?
 #' @param destDir A path where the package source should be assembled.
 #' @param license What is the license (and it's version)
-#' @return A special package to load an \link{MSEApDb} object.
+#' @return A special package to load an \link{MSEADb} object.
 #' @author Koki Tsuyuzaki
-#' @seealso \code{\link{MSEApDb}}
+#' @seealso \code{\link{MSEADb}}
 #' @examples
 #' 
-#' ## makeMSEApPackage enable users to construct
-#' ## user's own custom MSEAp annotation package
+#' ## makeMSEAPackage enable users to construct
+#' ## user's own custom MSEA annotation package
 #' 
 #' ## this is test data which means the relationship between
 #' ## PathBank pathway IDs of Arabidopsis thaliana
 #' ## and its compound DB IDs (e.g., HMDB, CAS, etc...).
 #' tmp <- tempdir()
-#' ath <- system.file("extdata","MSEAp.Ath.pb.db_DATA.csv",package="MSEApDbi")
-#' meta <- system.file("extdata","MSEAp.Ath.pb.db_METADATA.csv",
-#'     package="MSEApDbi")
+#' ath <- system.file("extdata","MSEA.Ath.pb.db_DATA.csv",package="MSEADbi")
+#' meta <- system.file("extdata","MSEA.Ath.pb.db_METADATA.csv",
+#'     package="MSEADbi")
 #' athDf <- read.csv(ath)
 #' metaDf <- read.csv(meta)
 #' # We need to avoid DOT from the column names (to query with the names)
 #' names(athDf) <- gsub("\\.", "", names(athDf))
 #' names(metaDf) <- gsub("\\.", "", names(metaDf))
 #' 
-#' makeMSEApPackage(pkgname = "MSEAp.Ath.pb.db", data=athDf, metadata=metaDf,
+#' makeMSEAPackage(pkgname = "MSEA.Ath.pb.db", data=athDf, metadata=metaDf,
 #'     organism = "Arabidopsis thaliana", version = "0.99.0",
 #'     maintainer = "Kozo Nishida <kozo.nishida@gmail.com>",
 #'     author = "Kozo Nishida",
 #'     destDir = tmp, license = "Artistic-2.0")
 #' 
-#' mseapPackageDir = paste(tmp, "MSEAp.Ath.pb.db", sep="/")
-#' install.packages(mseapPackageDir, repos=NULL, type="source")
+#' mseaPackageDir = paste(tmp, "MSEA.Ath.pb.db", sep="/")
+#' install.packages(mseaPackageDir, repos=NULL, type="source")
 #' 
-#' @export makeMSEApPackage
+#' @export makeMSEAPackage
 #' 
-makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
+makeMSEAPackage <- function(pkgname, data, metadata, organism, version,
     maintainer, author, destDir, license="Artistic-2.0"){
     .validateColNames1(data)
     .validateColNames2(metadata)
-    template_path <- system.file("MSEApPkg-template", package="MSEApDbi")
+    template_path <- system.file("MSEAPkg-template", package="MSEADbi")
     symvals <- list(
-        PKGTITLE=paste("An annotation package for the MSEApDb object"),
-        PKGDESCRIPTION=paste("Contains the MSEApDb object",
+        PKGTITLE=paste("An annotation package for the MSEADb object"),
+        PKGDESCRIPTION=paste("Contains the MSEADb object",
             "to access data from several related annotation packages."),
         PKGVERSION=version,
         AUTHOR=author,
@@ -93,14 +93,14 @@ makeMSEApPackage <- function(pkgname, data, metadata, organism, version,
         symbolValues = symvals,
         unlink = TRUE
     )
-    template_sqlite <- paste0(system.file("DBschemas", package = "MSEApDbi"),
-        "/MSEAp.XXX.pb.db.sqlite")
+    template_sqlite <- paste0(system.file("DBschemas", package = "MSEADbi"),
+        "/MSEA.XXX.pb.db.sqlite")
     dir.create(paste0(destDir, "/", pkgname, "/inst/extdata"),
         showWarnings = FALSE, recursive = TRUE)
     dest_sqlitepath <- paste0(destDir, "/", pkgname, "/inst/extdata/")
     file.copy(from = template_sqlite, to = dest_sqlitepath,
         overwrite=TRUE)
-    old_dest_sqlite <- paste0(dest_sqlitepath, "MSEAp.XXX.pb.db.sqlite")
+    old_dest_sqlite <- paste0(dest_sqlitepath, "MSEA.XXX.pb.db.sqlite")
     new_dest_sqlite <- paste0(dest_sqlitepath, pkgname, ".sqlite")
     file.rename(from = old_dest_sqlite, to = new_dest_sqlite)
     conn <- dbConnect(SQLite(), dbname = new_dest_sqlite)

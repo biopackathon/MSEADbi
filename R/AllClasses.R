@@ -3,10 +3,10 @@
 ##
 
 # Reference class
-.MSEApDb <- setRefClass("MSEApDb", contains="AnnotationDb")
+.MSEADb <- setRefClass("MSEADb", contains="AnnotationDb")
 
 ## Constructor
-MSEApDb <- function(pkgname){
+MSEADb <- function(pkgname){
     ## Inherit class, Instantiation
     .dbconn <- dbConnect(
         SQLite(),
@@ -15,6 +15,6 @@ MSEApDb <- function(pkgname){
             paste0("/", pkgname, ".sqlite")
         )
     )
-    obj <- .MSEApDb$new(conn=.dbconn, packageName=pkgname)
+    obj <- .MSEADb$new(conn=.dbconn, packageName=pkgname)
     return(obj)
 }

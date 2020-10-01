@@ -4,7 +4,7 @@ Description: @PKGDESCRIPTION@
 Version: @PKGVERSION@
 Author: @AUTHOR@
 Maintainer: @MAINTAINER@
-Depends: R (>= 3.5.0), MSEApDbi
+Depends: R (>= 4.0.0), MSEADbi
 Imports: RSQLite
 Suggests: RUnit, BiocGenerics
 License: @LIC@

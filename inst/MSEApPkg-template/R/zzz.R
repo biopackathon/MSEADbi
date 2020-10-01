@@ -1,3 +1,3 @@
 .onLoad <- function(libname, pkgname) {
-  MSEApDbi:::.loadMSEApDbiPkg(pkgname=pkgname)
+  MSEADbi:::.loadMSEADbiPkg(pkgname=pkgname)
 }
