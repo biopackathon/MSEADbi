@@ -2,10 +2,10 @@
 ## This is for MSAp.XXX.eg.db
 ##
 
-.loadMSEApDbiPkg <- function (pkgname) {
+.loadMSEADbiPkg <- function (pkgname) {
 
     ## Inherit class, Instantiation
-    obj <- MSEApDb(pkgname)
+    obj <- MSEADb(pkgname)
 
     ## Export object
     ns <- asNamespace(pkgname)

@@ -11,11 +11,11 @@ importMethodsFrom(DBI, dbGetQuery)
 importMethodsFrom(AnnotationDbi, columns, keytypes, keys, select,
     dbconn, dbfile, dbschema, dbInfo, species)
 
-export(makeMSEApPackage)
-export(MSEApDb)
+export(makeMSEAPackage)
+export(MSEADb)
 
-exportClasses(MSEApDb)
+exportClasses(MSEADb)
 
 exportMethods(columns, keytypes, keys, select, dbconn, dbfile, dbschema,
-    dbInfo, species, mseapPackageName, mseapNomenclature, 
-    mseapListPathwaySubjects, mseapVersion)
+    dbInfo, species, mseaPackageName, mseaNomenclature, 
+    mseaListPathwaySubjects, mseaVersion)

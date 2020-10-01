@@ -1,2 +1,2 @@
-import(MSEApDbi)
+import(MSEADbi)
 importFrom(RSQLite, SQLite, dbConnect, dbWriteTable, dbDisconnect)

@@ -12,7 +12,7 @@
 }
 
 setMethod("show",
-            "MSEApDb",
+            "MSEADb",
             function(object){
                 print("##### class ####")
                 print(class(object))
@@ -25,7 +25,7 @@ setMethod("show",
 
 # columns
 setMethod("columns",
-            "MSEApDb",
+            "MSEADb",
             function(x) {
                 return(dbGetQuery(dbconn(x),"PRAGMA TABLE_INFO(DATA);")$name)
             }
@@ -33,7 +33,7 @@ setMethod("columns",
 
 # keytypes
 setMethod("keytypes",
-            "MSEApDb",
+            "MSEADb",
             function(x) {
                 return(dbGetQuery(dbconn(x),"PRAGMA TABLE_INFO(DATA);")$name)
             }
@@ -41,7 +41,7 @@ setMethod("keytypes",
 
 # keys
 setMethod("keys",
-            "MSEApDb",
+            "MSEADb",
             function(x, keytype){
                 query <- paste0("SELECT ", keytype, " FROM DATA;")
                 k <- unlist(unique(dbGetQuery(x$conn, query)))
@@ -52,7 +52,7 @@ setMethod("keys",
 
 # select
 setMethod("select",
-        "MSEApDb",
+        "MSEADb",
         function(x, keys, columns, keytype){
                 c <- paste(columns, collapse=",")
                 keys <- paste0('"', keys, '"')
@@ -80,7 +80,7 @@ setMethod("select",
 
 ## dbconn
 setMethod("dbconn",
-        "MSEApDb",
+        "MSEADb",
         function(x){
             return(x$conn)
         }
@@ -88,7 +88,7 @@ setMethod("dbconn",
 
 ## dbfile
 setMethod("dbfile",
-        "MSEApDb",
+        "MSEADb",
         function(x){
             return(
                 paste0(
@@ -101,7 +101,7 @@ setMethod("dbfile",
 
 ## dbschema
 setMethod("dbschema",
-        "MSEApDb",
+        "MSEADb",
         function(x){
             return(dbGetQuery(x$conn, "SELECT * FROM sqlite_master;")$sql)
         }
@@ -109,7 +109,7 @@ setMethod("dbschema",
 
 ## dbInfo
 setMethod("dbInfo",
-        "MSEApDb",
+        "MSEADb",
         function(x){
             return(dbGetQuery(x$conn, "SELECT * FROM METADATA;"))
         }
@@ -117,7 +117,7 @@ setMethod("dbInfo",
 
 ## species
 setMethod("species",
-        "MSEApDb",
+        "MSEADb",
         function(object) {
             return(dbGetQuery(
                 object$conn,
@@ -125,17 +125,17 @@ setMethod("species",
         }
 )
 
-## mseapPackageName
-setMethod("mseapPackageName",
-        "MSEApDb",
+## mseaPackageName
+setMethod("mseaPackageName",
+        "MSEADb",
         function(x){
             return(x$packageName)
         }
 )
 
-## mseapNomenclature
-setMethod("mseapNomenclature",
-        "MSEApDb",
+## mseaNomenclature
+setMethod("mseaNomenclature",
+        "MSEADb",
         function(x) {
             return(dbGetQuery(
                 x$conn,
@@ -143,20 +143,20 @@ setMethod("mseapNomenclature",
         }
 )
 
-## mseapListPathwaySubjects
-setMethod("mseapListPathwaySubjects",
-        "MSEApDb",
+## mseaListPathwaySubjects
+setMethod("mseaListPathwaySubjects",
+        "MSEADb",
         function(x) {
             return(dbGetQuery(x$conn, 
                                 'SELECT DISTINCT PathwaySubject FROM DATA;'))
         }
 )
 
-## mseapVersion
-setMethod("mseapVersion",
-        "MSEApDb",
+## mseaVersion
+setMethod("mseaVersion",
+        "MSEADb",
         function(x){
             return(dbGetQuery(x$conn,
-                'SELECT * FROM METADATA where name = "MSEApVERSION";')[1,])
+                'SELECT * FROM METADATA where name = "MSEAVERSION";')[1,])
         }
 )

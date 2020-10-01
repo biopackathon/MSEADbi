@@ -2,9 +2,9 @@
 ## Definition of Generic Functions
 ##
 
-setGeneric("mseapPackageName", function(x) standardGeneric("mseapPackageName"))
-setGeneric("mseapNomenclature", 
-            function(x) standardGeneric("mseapNomenclature"))
-setGeneric("mseapListPathwaySubjects", 
-            function(x) standardGeneric("mseapListPathwaySubjects"))
-setGeneric("mseapVersion", function(x) standardGeneric("mseapVersion"))
+setGeneric("mseaPackageName", function(x) standardGeneric("mseaPackageName"))
+setGeneric("mseaNomenclature", 
+            function(x) standardGeneric("mseaNomenclature"))
+setGeneric("mseaListPathwaySubjects", 
+            function(x) standardGeneric("mseaListPathwaySubjects"))
+setGeneric("mseaVersion", function(x) standardGeneric("mseaVersion"))
