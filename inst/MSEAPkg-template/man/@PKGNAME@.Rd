@@ -12,12 +12,16 @@ Users are encouraged to read the vignette from the
 \usage{@PKGNAME@}
 \value{MSEA.XXX.pb.db package}
 \examples{
-@PKGNAME@
+library(AnnotationDbi)
+library(@PKGNAME@)
+
 cls <- columns(@PKGNAME@)
 cls
 kts <- keytypes(@PKGNAME@)
 kt <- kts[2]
 kts
+ks <- head(keys(@PKGNAME@, keytype=kts[2]))
+ks
 res <- select(@PKGNAME@, keys=ks, columns=cls, keytype=kt)
 head(res)
 
