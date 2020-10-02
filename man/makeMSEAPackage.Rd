@@ -19,9 +19,9 @@ makeMSEAPackage(
 \arguments{
 \item{pkgname}{What is the desired package name.}
 
-\item{data}{Data frame contains GENEID (e.g., 100036770), MESHID
-(e.g.D000465), CATEGORY (e.g., G), SOURCEID (pubmed id), and SOURCEDB (e.g.,
-gendoo)}
+\item{data}{Data frame contains PathBankID, PathwayName, PathwaySubject,
+MetaboliteID, MetaboliteName, HMDBID, KEGGID, ChEBIID, DrugBankID, CAS,
+Formula, IUPAC, SMILES, InChI, and InChIKey}
 
 \item{metadata}{Data frame contains metadata of the package}
 
@@ -39,7 +39,7 @@ valid)}
 \item{license}{What is the license (and it's version)}
 }
 \value{
-A special package to load an \link{MSEADb} object.
+A special package to load an MSEADb object.
 }
 \description{
 \code{makeMSEAPackage} is a method that generates a package that will
@@ -68,7 +68,7 @@ tmp <- tempdir()
 ath <- system.file("extdata","MSEA.Ath.pb.db_DATA.csv",package="MSEADbi")
 meta <- system.file("extdata","MSEA.Ath.pb.db_METADATA.csv",
     package="MSEADbi")
-athDf <- read.csv(ath)
+athDf <- read.csv(ath, fileEncoding="utf8")
 metaDf <- read.csv(meta)
 # We need to avoid DOT from the column names (to query with the names)
 names(athDf) <- gsub("\\\\.", "", names(athDf))
@@ -84,9 +84,6 @@ mseaPackageDir = paste(tmp, "MSEA.Ath.pb.db", sep="/")
 install.packages(mseaPackageDir, repos=NULL, type="source")
 
 }
-\seealso{
-\code{\link{MSEADb}}
-}
 \author{
-Koki Tsuyuzaki
+Kozo Nishida
 }
