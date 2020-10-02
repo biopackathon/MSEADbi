@@ -41,22 +41,17 @@ CSV.
 library('MSEADbi')
 tmp <- tempdir()
 
-ath <- system.file("extdata","MSEA.Ath.pb.db_DATA.csv",package="MSEADbi")
-meta <- system.file("extdata","MSEA.Ath.pb.db_METADATA.csv",package="MSEADbi")
-athDf <- read.csv(ath)
-metaDf <- read.csv(meta)
+athDf <- read.csv("MSEA.Ath.pb.db_DATA.csv")
+metaDf <- read.csv("MSEA.Ath.pb.db_METADATA.csv")
 # We need to avoid DOT from the column names (to query with the names)
 names(athDf) <- gsub("\\.", "", names(athDf))
 names(metaDf) <- gsub("\\.", "", names(metaDf))
-
 makeMSEAPackage(pkgname = "MSEA.Ath.pb.db", data=athDf, metadata=metaDf,
 organism = "Arabidopsis thaliana", version = "0.99.0",
 maintainer = "Kozo Nishida <kozo.nishida@gmail.com>", author = "Kozo Nishida",
 destDir = tmp, license = "Artistic-2.0")
-
 mseaPackageDir = paste(tmp, "MSEA.Ath.pb.db", sep="/")
 install.packages(mseaPackageDir, repos=NULL, type="source")
-
 ```
 
 ## columns, keytypes, and select
