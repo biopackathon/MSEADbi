@@ -17,9 +17,9 @@
 #' different packages used are from the same build etc.
 #' 
 #' @param pkgname What is the desired package name.
-#' @param data Data frame contains GENEID (e.g., 100036770), MESHID
-#' (e.g.D000465), CATEGORY (e.g., G), SOURCEID (pubmed id), and SOURCEDB (e.g.,
-#' gendoo)
+#' @param data Data frame contains PathBankID, PathwayName, PathwaySubject,
+#' MetaboliteID, MetaboliteName, HMDBID, KEGGID, ChEBIID, DrugBankID, CAS,
+#' Formula, IUPAC, SMILES, InChI, and InChIKey
 #' @param metadata Data frame contains metadata of the package
 #' @param organism The name of the organism this package represents
 #' @param version What is the version number for this package?
@@ -28,9 +28,8 @@
 #' @param author Who is the creator of this package?
 #' @param destDir A path where the package source should be assembled.
 #' @param license What is the license (and it's version)
-#' @return A special package to load an \link{MSEADb} object.
-#' @author Koki Tsuyuzaki
-#' @seealso \code{\link{MSEADb}}
+#' @return A special package to load an MSEADb object.
+#' @author Kozo Nishida
 #' @examples
 #' 
 #' ## makeMSEAPackage enable users to construct
@@ -43,7 +42,7 @@
 #' ath <- system.file("extdata","MSEA.Ath.pb.db_DATA.csv",package="MSEADbi")
 #' meta <- system.file("extdata","MSEA.Ath.pb.db_METADATA.csv",
 #'     package="MSEADbi")
-#' athDf <- read.csv(ath)
+#' athDf <- read.csv(ath, fileEncoding="utf8")
 #' metaDf <- read.csv(meta)
 #' # We need to avoid DOT from the column names (to query with the names)
 #' names(athDf) <- gsub("\\.", "", names(athDf))
