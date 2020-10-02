@@ -5,15 +5,15 @@
 \title{Making MSEADb packages from corresponding table as single data frame.}
 \usage{
 makeMSEAPackage(
-  pkgname,
-  data,
-  metadata,
-  organism,
-  version,
-  maintainer,
-  author,
-  destDir,
-  license = "Artistic-2.0"
+    pkgname,
+    data,
+    metadata,
+    organism,
+    version,
+    maintainer,
+    author,
+    destDir,
+    license = "Artistic-2.0"
 )
 }
 \arguments{
