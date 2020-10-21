@@ -3,7 +3,7 @@ Title: DBI to construct MSEA-related package
 Description: Interface to construct annotation package for MSEA 
     (MSEA.XXX.pb.db). The program design is same as Bioconductor LRBaseDbi or
     MeSHDbi pacakge, and the usage is also the same as these packages.
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: c(
     person ("Kozo", "Nishida", email = "kozo.nishida@gmail.com",
         role = c("aut", "cre"), comment = c(ORCID = "0000-0001-8501-7319")),

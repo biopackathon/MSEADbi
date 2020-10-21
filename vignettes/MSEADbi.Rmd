@@ -10,7 +10,7 @@ vignette: |
     %\VignetteEngine{knitr::rmarkdown}
 ---
 
-## Introduction
+# Introduction
 
 MSEADbi makes it easy to generate your own annotation package for MSEA.
 The package design is the same as
@@ -27,7 +27,7 @@ MSEADbi has a role; the construction of MSEA.XXX.pb.db packages.
 The makeMSEAPackage function of MSEADbi generates the user's original
 MSEA.XXX.pb.db packages.
 
-## makeMSEAPackage
+# makeMSEAPackage
 
 Here we use makeMSEAPackage function to create a MSEA.XXX.pb.db package.
 Only user have to specify are 1. a csv file that is filtered to include only the
@@ -59,7 +59,7 @@ install.packages(mseaPackageDir, repos=NULL, type="source")
 
 ```
 
-## columns, keytypes, and select
+# columns, keytypes, and select
 
 All MSEA.XXX.pb.db package has same name object and it is instantiated by
 MSEADbclass. Many data access function for this object are implmented.
@@ -87,7 +87,7 @@ res <- select(MSEA.Ath.pb.db, keys = ks, columns = cls, keytype = kt)
 head(res)
 ```
 
-## Other functions
+# Other functions
 
 Other additional functions like species, dbInfo, and dbconn are available.
 In each MSEA.XXX.pb.db package, species function returns the common name.
@@ -105,7 +105,7 @@ dbconn(MSEA.Ath.pb.db)
 ```
 
 
-## References
+# References
 
 FILL bibtex for PathBank
 
